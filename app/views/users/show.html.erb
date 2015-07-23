@@ -1,0 +1,21 @@
+<% provide :title, @user.name %>
+
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <% unless @user.avatar.blank? %>
+        <%= link_to image_tag(@user.avatar, id: "image"), @user %>
+      <% else %>
+        <%= link_to image_tag("avatar_default".jpg, id: "image"), @user %>
+      <% end %>
+    </section>
+    <section class="name">
+      <%= link_to @user.name %>
+    </section>
+  </aside>
+  <div class="col-md-9">
+    <ul class="list-group">
+      <li class="list-group-item active"><%= t("Act") %></li>
+    </ul>
+  </div>
+</div>
