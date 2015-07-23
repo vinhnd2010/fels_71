@@ -6,7 +6,7 @@
       <% unless @user.avatar.blank? %>
         <%= link_to image_tag(@user.avatar, id: "image"), @user %>
       <% else %>
-        <%= link_to image_tag("avatar_default".jpg, id: "image"), @user %>
+        <%= link_to image_tag("avatar_default.jpg", id: "image"), @user %>
       <% end %>
     </section>
     <section class="name">
