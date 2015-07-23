@@ -1,0 +1,20 @@
+<% provide :title, t("AU") %>
+<h1><%= t("AU") %>
+  <span class = "label label-danger">
+    <%= pluralize @users.count, "user" %>
+  </span>
+</h1>
+
+<div class="col-sm-3 col-md-12">
+  <%= will_paginate %>
+  <ul class="list-group">
+    <% @users.each do |user| %>
+      <li class="list-group-item list-group-item-info">
+        <b><%= link_to user.name, user_path(user) %></b></br>
+        <%= t("Add") %> <%= time_ago_in_words user.created_at %> <%= t("ago") %>
+        <%= link_to t("Details"), user_path(user), class: "btn btn-xs btn-info" %>
+      </li>
+    <% end %>
+  </ul>
+  <%= will_paginate %>
+</div>

@@ -32,4 +32,10 @@ en:
   news: "News"
   trainteam: "Tranning team"
   logo: "FELS"
-
+  Act: "Activities"
+  AU: "All users"
+  Details: "Details"
+  Add: "Added"
+  ago: "ago."
+  Warning: "should be less than 5MB"
+  NotFound: "%{model} not found"

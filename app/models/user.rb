@@ -23,11 +23,25 @@ class User < ActiveRecord::Base
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
 
+  mount_uploader :avatar, PictureUploader
+  validate  :picture_size
+
   has_secure_password
+
+  def slug
+    name.downcase.gsub(" ", "-")
+  end
+
+  def to_param
+    [id, slug].join("-")
+  end
 
   private
   def downcase_email
     self.email = email.downcase
   end
 
+  def picture_size
+    errors.add(:avatar, t("Warning")) if avatar.size > 5.megabytes
+  end
 end
