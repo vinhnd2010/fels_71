@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :redirect_logged_in_user, only: :new
+
   def new
   end
 

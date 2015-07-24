@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: :show
+  before_action :logged_in_user, only: [:show, :index, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :verify_admin, only: :index
 
   def index
     @users = User.order("name").paginate page: params[:page], per_page: 18
@@ -9,6 +11,20 @@ class UsersController < ApplicationController
     @user = find_object_model User, params[:id]
   end
 
+  def edit
+    @user = find_object_model User, params[:id]
+  end
+
+  def update
+    user = User.find params[:id]
+    if user.update_attributes user_params
+      flash[:success] = t "user.PUpdate"
+      redirect_to user
+    else
+      render :edit
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar
@@ -16,7 +32,10 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = find_object_model User, params[:id]
-    redirect_to root_url unless current_user = @user
+    unless current_user?(@user)
+      flash[:danger] = t "user.denied"
+      redirect_to root_url
+    end
   end
 
   def logged_in_user
@@ -28,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   def verify_admin
-    if logged_in? && current_user.admin?
+    if logged_in? && !current_user.admin?
       flash[:danger] = t "user.denied"
       redirect_to root_url
     else

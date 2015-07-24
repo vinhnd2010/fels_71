@@ -36,6 +36,14 @@ textarea {
   font-weight: bold;
 }
 
+#avatar{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: -5px;
+  margin-right: -20px;
+}
+
 #logo:hover {
   color: #fff;
   text-decoration: none;
@@ -103,10 +111,17 @@ footer ul li {
 #image{
   border-radius: 50%;
   text-align: center;
+  width: 180px;
+  height: 180px;
 }
 
 .name{
   text-align: center;
+  ul{
+    list-style-image: none;
+    padding: 0px;
+    margin: 0px;
+  }
 }
 
 .user_info{

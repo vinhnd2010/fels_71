@@ -10,7 +10,12 @@
       <% end %>
     </section>
     <section class="name">
-      <%= link_to @user.name %>
+      <ul>
+        <li><%= link_to @user.name, user_path(@user) %></li>
+        <% if current_user == @user %>
+          <li><%= link_to t("EditUser"), edit_user_path(@user) %></li>
+        <% end %>
+      </ul>
     </section>
   </aside>
   <div class="col-md-9">

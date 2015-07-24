@@ -49,6 +49,10 @@ en:
     pleaselogin: "Please login ..."
     denied: "Permition denied."
     remember: "Remember me on this computer"
+    PUpdate: "Profile updated."
   invalid: "Invalid email/password"
   users: "Users"
-
+  UserSetting: "%{name} setting"
+  EditUser: "Edit profile"
+  Form: "The form contains"
+  Update: "Update"
