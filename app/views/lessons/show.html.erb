@@ -1,0 +1,15 @@
+<% provide :title, "Lesson-#{@lesson.category.name}" %>
+<h1><%= @lesson.name %></h1>
+<div id="lesson_stats" data-num-words="<%= @lesson.words.count %>">
+  <div id="lesson-<%= @lesson.id %>">
+    <span class="user"><%= link_to @lesson.user.name, @lesson.user %></span>
+    <span class="content">
+      <%= t "lesson.noti" %> <%= pluralize(@lesson.words.count, "word") %>
+      <%= t "lesson.incate" %> "<%= @lesson.category.name %>"
+    </span>
+    <p/>
+  </div>
+  <span class="lessons">
+    <%= render "lesson" %>
+  </span>
+</div>

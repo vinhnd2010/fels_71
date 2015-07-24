@@ -1,0 +1,10 @@
+<% provide :title, t("lesson.lessons") %>
+<h1>All lessons in category <%= @category.name %></h1>
+<div class="list_lessons">
+  <% if @lessons.count == 0 %>
+    <span><%= t "lesson.warn" %></span>
+  <% else %>
+    <%= @lessons.count %>
+    <%= render @lessons %>
+  <% end %>
+</div>
