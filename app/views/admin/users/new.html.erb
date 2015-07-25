@@ -1,0 +1,19 @@
+<% provide :title, t("user.UserAdd") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= t "user.UserAdd" %></h1>
+    <div class="row">
+      <%= form_for [:admin, @user] do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <%= f.text_field :name, class: "form-control", placeholder: t("user.UserUsername") %>
+        <%= f.email_field :email, class: "form-control", placeholder: t("user.UserEmail") %>
+        <%= f.password_field :password, class: "form-control", placeholder: t("user.UserPassword") %>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder: t("user.UserPassword") %>
+        <%= f.submit t("user.UserAcc"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>

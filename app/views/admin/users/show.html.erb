@@ -1,0 +1,29 @@
+<% provide :title, @user.name %>
+
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <% unless @user.avatar.blank? %>
+        <%= image_tag @user.avatar, id: "image" %>
+      <% else %>
+        <%= image_tag "avatar_default.jpg", id: "image" %>
+      <% end %>
+      <section class="name">
+        <ul>
+          <li><%= link_to @user.name, admin_user_path(@user) %></li>
+          <li><%= link_to t("EditUser"), edit_admin_user_path(@user) %></li>
+        </ul>
+      </section>
+    </section>
+  </aside>
+  <div class="col-md-6">
+    <div id="user-info">
+      <ul class ="list-group">
+        <li class="list-group-item list-group-item-info"><%= t "Email" %><%= @user.email %></li>
+        <%= link_to t("Edit"), edit_admin_user_path(@user), class: "btn btn-success" %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>

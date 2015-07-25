@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "categories#index"
     resources :categories
+    resources :users
   end
   resources :users do
     get "/:relationship" => "relationships#index", as: :relationship
