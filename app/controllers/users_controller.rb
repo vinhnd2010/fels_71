@@ -47,13 +47,9 @@ class UsersController < ApplicationController
   end
 
   def verify_admin
-    if logged_in? && !current_user.admin?
+    unless current_user.admin?
       flash[:danger] = t "user.denied"
       redirect_to root_url
-    else
-      store_location
-      flash[:danger] = t "user.pleaselogin"
-      redirect_to login_url
     end
   end
 end
