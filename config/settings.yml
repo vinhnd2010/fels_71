@@ -4,3 +4,5 @@ filter:
   Not_learned: not_learned
   Alphabet: alphabet
   All: get_all
+relationships: ["following", "followers"]
+

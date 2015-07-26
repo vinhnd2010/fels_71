@@ -1,0 +1,24 @@
+<% provide :title, @title %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <% unless @user.avatar.blank? %>
+        <%= link_to image_tag(@user.avatar, id: "image"), @user %>
+      <% else %>
+        <%= link_to image_tag("avatar_default.jpg", id: "image"), @user %>
+      <% end %>
+    </section>
+    <section class="name">
+      <%= link_to @user.name, @user %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate @users%>
+    <% end %>
+  </div>
+</div>
