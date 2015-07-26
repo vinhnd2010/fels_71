@@ -1,0 +1,11 @@
+<table class="table table-hover">
+  <tr class="success">
+    <th><%= t "word.words" %></th>
+    <th><%= t "word.meaning" %></th>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.name %></td>
+      </tr>
+    <% end %>
+  </tr>
+</table>

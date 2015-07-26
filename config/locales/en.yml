@@ -70,3 +70,8 @@ en:
     NewLesson: "New lesson"
   Created: "Created"
   Categories: "Categories"
+  word:
+    AllWord: "All words"
+    words: "word"
+    meaning: "Meaning"
+    search: "Search"

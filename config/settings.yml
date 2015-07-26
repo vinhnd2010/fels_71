@@ -1,0 +1,6 @@
+paginate_per_page: 18
+filter:
+  Learned: learned
+  Not_learned: not_learned
+  Alphabet: alphabet
+  All: get_all
