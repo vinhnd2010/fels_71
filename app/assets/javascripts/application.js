@@ -18,6 +18,9 @@
 //= require_self
   $(document).ready(function(){
     $("div.alert").delay(3000).slideUp();
+    $(".button-click").click(function(){
+      add_fields($(this)[0], $(this).data("fields"));
+    });
   });
 
   $(document).ready(function(){
@@ -29,4 +32,15 @@
     });
   });
 
+  function remove_fields(field) {
+    $(field).prev().val("true");
+    $(field).parent().hide();
+  }
+
+  function add_fields(link, content) {
+    var new_id = new Date().getTime();
+    var expression = "[0-9]+";
+    var regexp = new RegExp(expression, "g");
+    $(link).parent().before(content.replace(regexp, new_id));
+  }
 

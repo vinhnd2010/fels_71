@@ -14,4 +14,19 @@ class ApplicationController < ActionController::Base
   def redirect_logged_in_user
     redirect_to(root_url) if current_user
   end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = t "user.pleaselogin"
+      redirect_to login_url
+    end
+  end
+
+  def verify_admin
+    unless current_user.admin?
+      flash[:danger] = t "user.denied"
+      redirect_to root_url
+    end
+  end
 end
