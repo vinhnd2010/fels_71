@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>
+    <p>
+      <%= t "word_list" %>
+    </p>
+  </h1>
+  <h2>
+    <p>
+      <span id="words" class="label label-danger">
+        <%= pluralize @words.count, t("word.words") %>
+      </span>
+    </p>
+  </h2>
+  <%= render "shared/filter_form" %>
+  <div id="word_table">
+    <%= render "word" %>
+  </div>
+  <div class="col-md-6 col-md-offset-3 paginate">
+    <%= will_paginate @word %>
+  </div>
+</div>

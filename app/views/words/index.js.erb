@@ -1,0 +1,2 @@
+$("#word_table").html("<%= escape_javascript(render 'word') %>");
+$("#words").html("<%= @words.any? ? pluralize(@words.count, 'word') : '0 word' %>");
