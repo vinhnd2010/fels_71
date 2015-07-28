@@ -6,6 +6,7 @@
           <li><%= link_to t("logo"), admin_root_path, id: "logo" %></li>
           <li><%= link_to t("users"), admin_users_path %></li>
           <li><%= link_to t("Categories"), admin_categories_path %></li>
+          <li><%= link_to t("word.WordList"), admin_words_path %></li>
         <% else %>
           <li><%= link_to t("logo"), root_path, id: "logo" %></li>
           <li><%= link_to t("word.WordList"), words_path %></li>

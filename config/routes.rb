@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     root "categories#index"
     resources :categories
     resources :users
+    resource  :uploads, only: [:create]
+    resources :words
   end
   resources :users do
     get "/:relationship" => "relationships#index", as: :relationship
