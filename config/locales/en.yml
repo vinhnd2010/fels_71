@@ -97,3 +97,8 @@ en:
   DestroyFail: "Can not destroy!. Please check again."
   Email: "Email : "
   Confirmation: "Confirmation"
+  import:
+    successfully: "File import successfully!"
+    file_is_required: "File is require! Please check again."
+    submit: "Import"
+  import_using_fileType_file: "Import using %{fileType} file"

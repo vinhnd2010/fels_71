@@ -9,3 +9,4 @@ activities:
   followed: followed
   unfollowed: unfollowed
   learned: learned
+fileType_to_import_words: csv

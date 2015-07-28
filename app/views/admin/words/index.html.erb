@@ -1,0 +1,17 @@
+<% provide :title, t("word.AllWord") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3>
+      <%= t("import_using_fileType_file", fileType: Settings.fileType_to_import_words) %>
+    </h3>
+    <%= form_tag admin_uploads_path, method: :post, multipart: true do %>
+      <p>
+        <%= file_field_tag :file, class: "filestyle", required: true %>
+      </p>
+      <p>
+        <%= submit_tag t("import.submit"), class: "btn btn-success" %>
+      </p>
+    <% end %>
+  </div>
+</div>
