@@ -15,6 +15,11 @@
       <%= button_tag type: "submit", class: "btn btn-success" do %>
         <i class="glyphicon glyphicon-search"></i><%= t "word.search" %>
       <% end %>
+      <% if current_user.teacher? %>
+        <strong id="download">
+          <%= render "shared/download" %>
+        </strong>
+      <% end %>
     </div>
   </div>
   <hr>

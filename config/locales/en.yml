@@ -93,6 +93,7 @@ en:
     meaning: "Meaning"
     search: "Search"
     WordList: "Words list"
+    zero: "0 word"
   Edit: "Edit"
   DestroyFail: "Can not destroy!. Please check again."
   Email: "Email : "
@@ -102,3 +103,4 @@ en:
     file_is_required: "File is require! Please check again."
     submit: "Import"
   import_using_fileType_file: "Import using %{fileType} file"
+  download: "Download"
