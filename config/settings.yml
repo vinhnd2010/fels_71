@@ -5,4 +5,7 @@ filter:
   Alphabet: alphabet
   All: get_all
 relationships: ["following", "followers"]
-
+activities:
+  followed: followed
+  unfollowed: unfollowed
+  learned: learned
