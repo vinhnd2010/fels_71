@@ -10,12 +10,13 @@
       <% end %>
     </section>
     <section class="name">
-      <ul>
-        <li><%= link_to @user.name, user_path(@user) %></li>
-        <% if current_user == @user %>
-          <li><%= link_to t("EditUser"), edit_user_path(@user) %></li>
-        <% end %>
-      </ul>
+      <%= link_to @user.name %>
+    </section>
+    <section class="btn-follow">
+      <%= render "follow_form" if logged_in? %>
+    </section>
+    <section class="stats">
+    <%= render "shared/stats" %>
     </section>
   </aside>
   <div class="col-md-9">

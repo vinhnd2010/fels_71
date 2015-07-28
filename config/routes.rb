@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
-
-  resources :users
   resources :words, only: [:index]
-
+  resources :words, only: [:index]
   namespace :admin do
     root "categories#index"
     resources :categories
   end
+  resources :users do
+    get "/:relationship" => "relationships#index", as: :relationship
+  end
+  resources :relationships, only: [:index, :create, :destroy]
 end
