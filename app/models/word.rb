@@ -4,6 +4,7 @@ class Word < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :lessons, through: :lesson_words
   has_many :lesson_words, dependent: :destroy
+  has_many :results, dependent: :destroy
 
   scope :in_category, ->category_id{where category_id: category_id if category_id.present?}
   scope :learned, ->user{where("id IN (
