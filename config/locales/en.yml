@@ -85,6 +85,13 @@ en:
     CategoryDes: "Description about category ..."
     CategoryCreate: "Create Category"
     NewLesson: "New lesson"
+    categoryedit: "Edit %{name}"
+    categorysetting: "Update category"
+    categoryupdate: "Updated category successfully"
+    categorydelete: "Deleted category successfully"
+    des: "Category description"
+    numberword: "Words number"
+    createcatfails: "Unable to create a new category"
   Created: "Created"
   Categories: "Categories"
   word:
@@ -104,3 +111,6 @@ en:
     submit: "Import"
   import_using_fileType_file: "Import using %{fileType} file"
   download: "Download"
+  action: "Actions"
+  done: "Update"
+
