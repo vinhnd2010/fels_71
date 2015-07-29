@@ -1,0 +1,13 @@
+<% unless params[:category_id] || params[:filter_state] %>
+  <a href="<%= words_path(format: "pdf") %>" class="pull-right btn btn-primary">
+    <span class="glyphicon glyphicon-download-alt"></span><%= t "download" %>
+  </a>
+<% else %>
+  <a href="<%= words_path(format: "pdf", category_id: "#{params[:category_id]}",
+    filter_state: "#{params[:filter_state]}") %>"
+    class="pull-right btn btn-primary">
+    <span class="glyphicon glyphicon-download-alt"></span><%= t "download" %>
+  </a>
+<% end %>
+
+

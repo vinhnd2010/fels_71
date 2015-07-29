@@ -5,6 +5,7 @@
     <% @words.each do |word| %>
       <tr>
         <td><%= word.name %></td>
+        <td><%= word.answers.find_by(correct: true).content %></td>
       </tr>
     <% end %>
   </tr>
