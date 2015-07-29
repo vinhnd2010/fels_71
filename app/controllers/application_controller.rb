@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
       model.find id
     rescue ActiveRecord::RecordNotFound
       flash[:danger] =  t("NotFound", model: model)
-      redirect_to root_path
+      redirect_to current_user.admin? ? admin_root_path : root_path
     end
   end
 

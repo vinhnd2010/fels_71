@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
   resources :words, only: [:index]
-  resources :words, only: [:index]
+
   namespace :admin do
     root "categories#index"
     resources :categories

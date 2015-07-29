@@ -1,23 +1,36 @@
 <% provide :title, t("Categories") %>
 
-<h1><%= t "Categories" %></h1>
-<div class="col-sm-3 col-md-12">
-  <%= link_to "Add new Course", new_admin_category_path, class: "btn btn-lg btn-primary" %>
-  <%= will_paginate %>
-  <ul class="list-group">
-    <% @categories.each do |category| %>
-      <li class="list-group-item list-group-item-info">
-        <b><%= link_to category.name, admin_category_path(category) %></b> </br>
-        <%= t "Created" %> <%= time_ago_in_words(category.created_at) %> <%= t "ago." %>
-        <%= link_to "Details", admin_category_path(category),
-          class: "btn btn-xs btn-info" %> |
-        <%= link_to "Delete", admin_category_path(category),
-          class: "btn btn-xs btn-warning",
-          method: :delete, data: {confirm: "Are you sure?"} %>
-      </li>
-    <% end %>
-  </ul>
-  <%= will_paginate %>
+<div class="row">
+  <h1><%= t "Categories" %></h1>
+  <div class="col-md-8">
+    <table id="category_list_table" class="table table-hover table-bordered">
+      <tbody>
+        <tr>
+          <th><%= t "categories.CategoryName" %></th>
+          <th><%= t "categories.des" %></th>
+          <th><%= t "categories.numberword" %></th>
+          <th><%= t "action" %></th>
+        </tr>
+        <%= render @categories %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <div>
+      <%= form_for [:admin, @category], remote: true, class: "form form-inline" do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+        <%= f.submit t("categories.CategoryCreate"), class: "btn btn-primary pull-right" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="clear"></div>
