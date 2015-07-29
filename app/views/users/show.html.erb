@@ -20,8 +20,12 @@
     </section>
   </aside>
   <div class="col-md-9">
-    <ul class="list-group">
-      <li class="list-group-item active"><%= t("Act") %></li>
-    </ul>
+    <div id="activities">
+      <ul class="list-group">
+        <li class="list-group-item active"><%= t "Act" %></li>
+        <%= render @activities %>
+      </ul>
+    </div>
+    <%= will_paginate @activities %>
   </div>
 </div>
