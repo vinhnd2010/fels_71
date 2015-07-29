@@ -17,7 +17,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:success] = t "user.Usernew"
+      flash[:success] = t "flash.user.created"
       redirect_to @user
     else
       render :new
@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = t "user.PUpdate"
+      flash[:success] = t "flash.user.updated"
       redirect_to admin_user_path @user
     else
       render :edit
@@ -41,7 +41,7 @@ class Admin::UsersController < ApplicationController
       @user.destroy
       destroy_result @user
     else
-      flash[:success] = t "user.CanNotDestroy"
+      flash[:success] = t "flash.user.cannot"
     end
     redirect_to admin_users_path
   end
@@ -57,9 +57,9 @@ class Admin::UsersController < ApplicationController
 
   def destroy_result params
     if params.destroyed?
-      flash[:success] = t "user.UserDel"
+      flash[:success] = t "flash.user.deleted.success"
     else
-      flash[:success] = t "DestroyFail"
+      flash[:success] = t "flash.user.deleted.fails"
     end
   end
 end

@@ -11,7 +11,7 @@
       <section class="name">
         <ul>
           <li><%= link_to @user.name, admin_user_path(@user) %></li>
-          <li><%= link_to t("EditUser"), edit_admin_user_path(@user) %></li>
+          <li><%= link_to t("user.title.edit"), edit_admin_user_path(@user) %></li>
         </ul>
       </section>
     </section>
@@ -19,8 +19,8 @@
   <div class="col-md-6">
     <div id="user-info">
       <ul class ="list-group">
-        <li class="list-group-item list-group-item-info"><%= t "Email" %><%= @user.email %></li>
-        <%= link_to t("Edit"), edit_admin_user_path(@user), class: "btn btn-success" %>
+        <li class="list-group-item list-group-item-info"><%= t "user.email" %><%= @user.email %></li>
+        <%= link_to t("done"), edit_admin_user_path(@user), class: "btn btn-success" %>
       </ul>
     </div>
   </div>

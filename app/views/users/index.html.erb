@@ -1,7 +1,8 @@
-<% provide :title, t("AU") %>
-<h1><%= t("AU") %>
+<% provide :title, t("user.all_users") %>
+
+<h1><%= t "user.all_users" %>
   <span class = "label label-danger">
-    <%= pluralize @users.count, t("users") %>
+    <%= pluralize @users.count, t("user.users") %>
   </span>
 </h1>
 
@@ -11,8 +12,8 @@
     <% @users.each do |user| %>
       <li class="list-group-item list-group-item-info">
         <b><%= link_to user.name, user_path(user) %></b></br>
-        <%= t("Add") %> <%= time_ago_in_words user.created_at %> <%= t("ago") %>
-        <%= link_to t("Details"), user_path(user), class: "btn btn-xs btn-info" %>
+        <%= t "add" %> <%= time_ago_in_words user.created_at %> <%= t "ago" %>
+        <%= link_to t("details"), user_path(user), class: "btn btn-xs btn-info" %>
       </li>
     <% end %>
   </ul>

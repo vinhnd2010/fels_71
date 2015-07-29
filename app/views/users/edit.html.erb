@@ -1,4 +1,4 @@
-<% provide :title, t("UserSetting", name: @user.name) %>
+<% provide :title, t("user.settings", name: @user.name) %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @user, html: {multipart: true} do |f| %>
@@ -10,7 +10,7 @@
       <%= f.label :password %>
       <%= f.label :password %>
       <%= f.password_field :password, class: "form-control" %>
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, t("user.confirmation") %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
       <br>
       <% unless current_user.avatar.blank? %>
@@ -22,7 +22,7 @@
         <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
       </span>
       <br>
-      <%= f.submit t("Update"), class: "btn btn-primary" %>
+      <%= f.submit t("done"), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
