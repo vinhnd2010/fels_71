@@ -1,0 +1,14 @@
+<li class="list-group-item list-group-item-info">
+  <% if activity.name == Settings.activities.learned %>
+    <%= t "categories.learnlesson" %>
+  <% elsif activity.name == Settings.activities.followed %>
+    <%= t "user.follow_act", action: Settings.activities.followed,
+      user: User.find_by(id: activity.target_id).name %>
+  <% else %>
+    <%= t "user.follow_act", action: Settings.activities.unfollowed,
+      user: User.find_by(id: activity.target_id).name %>
+  <% end %>
+  <span>
+    <%= time_ago_in_words activity.created_at %><%= t "ago" %>
+  </span>
+</li>

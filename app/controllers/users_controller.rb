@@ -4,11 +4,17 @@ class UsersController < ApplicationController
   before_action :verify_admin, only: :index
 
   def index
-    @users = User.order("name").paginate page: params[:page], per_page: 18
+    @users = User.order("name").paginate page: params[:page], per_page: Settings.paginate_per_page
   end
 
   def show
     @user = find_object_model User, params[:id]
+    @activities = Activity.action(@user).paginate page: params[:page],
+      per_page: Settings.paginate_per_page
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
@@ -33,13 +39,6 @@ class UsersController < ApplicationController
   def correct_user
     @user = find_object_model User, params[:id]
     unless current_user? @user
-      flash[:danger] = t "user.denied"
-      redirect_to root_url
-    end
-  end
-
-  def verify_admin
-    unless current_user.admin?
       flash[:danger] = t "user.denied"
       redirect_to root_url
     end
