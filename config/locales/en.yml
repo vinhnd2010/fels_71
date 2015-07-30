@@ -140,3 +140,5 @@ en:
     name: "Lesson_%{count}"
     description: "Lesson description"
     lessons: "Do the lesson"
+  results:
+    result: "Result"
