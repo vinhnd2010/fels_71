@@ -1,15 +1,37 @@
 <% provide :title, "Lesson-#{@lesson.category.name}" %>
-<h1><%= @lesson.name %></h1>
-<div id="lesson_stats" data-num-words="<%= @lesson.words.count %>">
-  <div id="lesson-<%= @lesson.id %>">
-    <span class="user"><%= link_to @lesson.user.name, @lesson.user %></span>
-    <span class="content">
-      <%= t "lesson.noti" %> <%= pluralize(@lesson.words.count, "word") %>
-      <%= t "lesson.incate" %> "<%= @lesson.category.name %>"
-    </span>
-    <p/>
-  </div>
-  <span class="lessons">
-    <%= render "lesson" %>
+
+<h1 align="center"><%= t "lesson.lesson" %></h1>
+<h3 align="center"><%= @category.name %></h3>
+<h3 class="text-center">
+  <% if @mark.nil? %>
+    <%= 0 %>
+  <% else %>
+    <%= @mark %>
+  <% end %>
+  <%= t "per" %>
+  <%= @lesson.results.count %>
+</h3>
+<h3 class="pull-right text-danger">
+  <span id="hidden-data" data-time-over-msg="<%= t 'time_over' %>"
+    data-time-remaining="<%= @time_remaining %>">
   </span>
+  <span class="glyphicon glyphicon-time">&nbsp</span>
+  <b id="time-remaining"></b>
+</h3>
+<div class="container">
+  <div class="row" id="lesson">
+    <%= form_for [@category, @lesson] do |f| %>
+      <%= f.fields_for :results do |builder| %>
+        <div class="col-md-10">
+          <%= render "question", f: builder %>
+        </div>
+      <% end %>
+      <div class="col-md-4 col-md-offset-4">
+        <br>
+        <%= f.submit t("dones"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+<%= javascript_include_tag "timer", "data-turbolinks-track" => true %>

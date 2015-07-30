@@ -2,8 +2,6 @@ class Word < ActiveRecord::Base
   belongs_to :category
 
   has_many :answers, dependent: :destroy
-  has_many :lessons, through: :lesson_words
-  has_many :lesson_words, dependent: :destroy
   has_many :results, dependent: :destroy
 
   accepts_nested_attributes_for :answers, allow_destroy: true,
@@ -20,4 +18,5 @@ class Word < ActiveRecord::Base
     SELECT id FROM words)")}
   scope :alphabet, ->name{where("id IN(
     SELECT id FROM words)").order("name")}
+  scope :random_questions, ->{order "RAND() LIMIT #{Settings.lesson.question_limit_words}"}
 end

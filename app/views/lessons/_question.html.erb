@@ -1,0 +1,22 @@
+<div class="result">
+  <hr>
+  <div class="col-md-5">
+    <p><%= t "question.questions" %><%= f.index + Settings.question.add_index %></p>
+    <h1><%= f.object.word.name %></h1>
+  </div>
+  <div class="col-md-5">
+    <%= f.hidden_field :word_id, value: f.object.word.id %>
+    <% f.object.word.answers.each do |answer| %>
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.radio_button :answer_id, answer.id, disabled: @is_time_over %>
+        </div>
+        <% if @is_time_over && answer.correct %>
+          <div class="col-md-3 text-danger"><%= answer.content %></div>
+        <% else %>
+          <div class="col-md-3"><%= answer.content %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
