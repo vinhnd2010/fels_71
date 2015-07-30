@@ -1,6 +1,6 @@
 <li class="list-group-item list-group-item-info">
   <% if activity.name == Settings.activities.learned %>
-    <%= t "categories.learnlesson" %>
+    <%= t "user.learn_act", action: Settings.activities.learned, word: Word.learned(@user || current_user).count, lesson: Lesson.find_by(id: activity.target_id).name %>
   <% elsif activity.name == Settings.activities.followed %>
     <%= t "user.follow_act", action: Settings.activities.followed,
       user: User.find_by(id: activity.target_id).name %>

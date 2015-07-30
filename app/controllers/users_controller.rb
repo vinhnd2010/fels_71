@@ -4,13 +4,14 @@ class UsersController < ApplicationController
   before_action :verify_admin, only: :index
 
   def index
-    @users = User.order("name").paginate page: params[:page], per_page: Settings.paginate_per_page
+    @users = User.order("name").paginate page: params[:page],
+      per_page: Settings.paginate_per_page
   end
 
   def show
     @user = find_object_model User, params[:id]
-    @activities = Activity.action(@user).paginate page: params[:page],
-      per_page: Settings.paginate_per_page
+    @activities = @user.activities.order(created_at: :DESC)
+      .paginate page: params[:page], per_page: Settings.paginate_per_page
     respond_to do |format|
       format.html
       format.js

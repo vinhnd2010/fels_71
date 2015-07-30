@@ -1,0 +1,16 @@
+<li id="category-<%= category.id %>">
+  <span class="name">
+    <strong><%= category.name %></strong>
+  </span>
+  <p/>
+  <span class="desctiption">
+    <%= category.description %>
+  </span>
+  <span class="button_start">
+    <%= form_for current_user.lessons.build do |f| %>
+      <div><%= hidden_field_tag :category_id, category.id %></div>
+      <%= f.submit t("categories.start"), class: "btn btn-primary"  %>
+    <% end %>
+  </span>
+  <br/>
+</li>
