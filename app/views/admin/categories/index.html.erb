@@ -1,13 +1,13 @@
-<% provide :title, t("Categories") %>
+<% provide :title, t("categories.category") %>
 
 <div class="row">
-  <h1><%= t "Categories" %></h1>
+  <h1><%= t "categories.category" %></h1>
   <div class="col-md-8">
     <table id="category_list_table" class="table table-hover table-bordered">
       <tbody>
         <tr>
-          <th><%= t "categories.CategoryName" %></th>
-          <th><%= t "categories.des" %></th>
+          <th><%= t "categories.name" %></th>
+          <th><%= t "categories.descriptions" %></th>
           <th><%= t "categories.numberword" %></th>
           <th><%= t "action" %></th>
         </tr>
@@ -27,7 +27,7 @@
           <%= f.label :description %>
           <%= f.text_area :description, class: "form-control" %>
         </div>
-        <%= f.submit t("categories.CategoryCreate"), class: "btn btn-primary pull-right" %>
+        <%= f.submit t("categories.create"), class: "btn btn-primary pull-right" %>
       <% end %>
     </div>
   </div>

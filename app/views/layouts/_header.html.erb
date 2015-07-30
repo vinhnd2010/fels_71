@@ -5,11 +5,11 @@
         <% if current_user.admin? %>
           <li><%= link_to t("static_page.logo"), admin_root_path, id: "logo" %></li>
           <li><%= link_to t("user.title.index"), admin_users_path %></li>
-          <li><%= link_to t("Categories"), admin_categories_path %></li>
-          <li><%= link_to t("word.WordList"), admin_words_path %></li>
+          <li><%= link_to t("categories.category"), admin_categories_path %></li>
+          <li><%= link_to t("word.list"), admin_words_path %></li>
         <% else %>
           <li><%= link_to t("static_page.logo"), root_path, id: "logo" %></li>
-          <li><%= link_to t("word.WordList"), words_path %></li>
+          <li><%= link_to t("word.list"), words_path %></li>
         <% end %>
       <% end %>
     </ul>

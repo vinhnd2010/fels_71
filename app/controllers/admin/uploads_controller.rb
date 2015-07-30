@@ -5,9 +5,9 @@ class Admin::UploadsController < ApplicationController
   def create
     if file = params[:file]
       import_csv file
-      flash[:success] = t "import.successfully"
+      flash[:success] = t "flash.import.successfully"
     else
-      flash[:danger] = t "import.file_is_required"
+      flash[:danger] = t "flash.import.required"
     end
     redirect_to admin_words_path
   end

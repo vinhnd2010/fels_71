@@ -14,13 +14,13 @@ class Admin::CategoriesController < ApplicationController
     if @category.save
       respond_to do |format|
         format.html do
-          flash[:success] = t "categories.CreateSuccess"
+          flash[:success] = t "flash.category.created.success"
           redirect_to admin_categories_path
         end
         format.js
       end
     else
-      flash[:danger] = t "categories.createcatfails"
+      flash[:danger] = t "flash.category.created.fails"
       redirect_to admin_categories_path
     end
   end
@@ -30,7 +30,7 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     if @category.update category_params
-      flash[:success] = t "categories.categoryupdate"
+      flash[:success] = t "flash.category.updated"
       redirect_to admin_categories_path
     else
       render :edit
@@ -41,13 +41,13 @@ class Admin::CategoriesController < ApplicationController
     if @category.destroy
       respond_to do |format|
         format.html do
-          flash[:success] = t "categories.categorydelete"
+          flash[:success] = t "flash.category.deleted.success"
           redirect_to admin_categories_path
         end
         format.js
       end
     else
-      flash[:danger] = t "DestroyFail"
+      flash[:danger] = t "flash.category.deleted.fails"
       redirect_to admin_categories_path
     end
   end
