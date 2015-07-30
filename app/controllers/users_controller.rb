@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def update
     user = User.find params[:id]
     if user.update_attributes user_params
-      flash[:success] = t "user.PUpdate"
+      flash[:success] = t "flash.user.updated"
       redirect_to user
     else
       render :edit
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def correct_user
     @user = find_object_model User, params[:id]
     unless current_user? @user
-      flash[:danger] = t "user.denied"
+      flash[:danger] = t "flash.user.permistion"
       redirect_to root_url
     end
   end

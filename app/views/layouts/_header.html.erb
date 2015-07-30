@@ -3,12 +3,12 @@
     <ul class="nav navbar-nav navbar-left">
       <% if logged_in? %>
         <% if current_user.admin? %>
-          <li><%= link_to t("logo"), admin_root_path, id: "logo" %></li>
-          <li><%= link_to t("users"), admin_users_path %></li>
+          <li><%= link_to t("static_page.logo"), admin_root_path, id: "logo" %></li>
+          <li><%= link_to t("user.title.index"), admin_users_path %></li>
           <li><%= link_to t("Categories"), admin_categories_path %></li>
           <li><%= link_to t("word.WordList"), admin_words_path %></li>
         <% else %>
-          <li><%= link_to t("logo"), root_path, id: "logo" %></li>
+          <li><%= link_to t("static_page.logo"), root_path, id: "logo" %></li>
           <li><%= link_to t("word.WordList"), words_path %></li>
         <% end %>
       <% end %>
@@ -36,7 +36,7 @@
                 <li><%= link_to t("user.profile"), user_path(current_user) %></li>
                 <li><%= link_to t("user.setting"), edit_user_path(current_user) %></li>
               <% end %>
-              <li><%= link_to t("help"), help_path %></li>
+              <li><%= link_to t("static_page.help"), help_path %></li>
               <li>
                 <%= link_to t("user.logout"), logout_path, method: "delete" %>
               </li>

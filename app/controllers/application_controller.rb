@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     begin
       model.find id
     rescue ActiveRecord::RecordNotFound
-      flash[:danger] =  t("NotFound", model: model)
+      flash[:danger] =  t("flash.notfound", model: model)
       redirect_to current_user.admin? ? admin_root_path : root_path
     end
   end
@@ -18,14 +18,14 @@ class ApplicationController < ActionController::Base
   def logged_in_user
     unless logged_in?
       store_location
-      flash[:danger] = t "user.pleaselogin"
+      flash[:danger] = t "flash.user.login"
       redirect_to login_url
     end
   end
 
   def verify_admin
     unless current_user.admin?
-      flash[:danger] = t "user.denied"
+      flash[:danger] = t "flash.user.permistion"
       redirect_to root_url
     end
   end

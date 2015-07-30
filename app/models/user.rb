@@ -79,6 +79,6 @@ class User < ActiveRecord::Base
   end
 
   def picture_size
-    errors.add(:avatar, t("Warning")) if avatar.size > 5.megabytes
+    errors.add(:avatar, t("flash.warning")) if avatar.size > 5.megabytes
   end
 end
