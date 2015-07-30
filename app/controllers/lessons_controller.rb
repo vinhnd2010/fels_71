@@ -15,10 +15,10 @@ class LessonsController < ApplicationController
       name: t("lesson.name", count: @category.lessons.count + 1),
       description: t("lesson.description")
     if @lesson.save
-      flash[:success] = t "lesson.flash.success"
+      flash[:success] = t "flash.lesson.created.success"
       redirect_to category_lesson_path @category, @lesson
     else
-      flash[:danger] = t "lesson.flash.fail"
+      flash[:danger] = t "flash.lesson.created.fails"
       redirect_to request.referrer
     end
   end

@@ -41,7 +41,7 @@ en:
         success: "Delete user successfully"
         cannot: "Can not remove yourself"
       permistion: "Permition denied"
-      login: "Please login"
+      mustlogin: "Please login"
     warning: "should be less than 5MB"
     notfound: "%{model} not found"
     category:
@@ -58,6 +58,18 @@ en:
     login:
       invalid: "Invalid email/password"
     confirm: "Are you sure?"
+    word:
+      created:
+        success: "Created word successfully"
+        fails: "Unable to create a new word."
+      updated: "Updated word successfully"
+      deleted:
+        success: "Deleted word successfully"
+        fails: "Words can not delete. Please check again"
+    lesson:
+      created:
+        success: "Created lesson"
+        fails: "Try again"
   details: "Details"
   delete: "Delete"
   add: "Added"
@@ -119,10 +131,10 @@ en:
     zero: "0 word"
     wordall: "Words"
     answer: "Answer:"
-  Edit: "Edit"
-  DestroyFail: "Can not destroy!. Please check again."
-  Email: "Email : "
-  Confirmation: "Confirmation"
+    enter_new_word: "Enter new word"
+    remove: "Remove"
+    saveword: "Save"
+    add: "Add"
   import:
     submit: "Import"
   import_using_fileType_file: "Import using %{fileType} file"
@@ -130,9 +142,6 @@ en:
   action: "Actions"
   done: "Update"
   lesson:
-    flash:
-      success: "Created lesson"
-      fail: "Try again"
     noti: "This lesson has"
     incate: "in category"
     warn: "You do not have any lesson in this category"

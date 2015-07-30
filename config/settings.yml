@@ -10,3 +10,5 @@ activities:
   unfollowed: unfollowed
   learned: learned
 fileType_to_import_words: csv
+answer:
+  num_of_ans: 4

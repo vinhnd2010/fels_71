@@ -16,15 +16,21 @@
 //= require turbolinks
 //= require_tree .
 //= require_self
-  $(document).ready(function(){
-    $("div.alert").delay(3000).slideUp();
-  });
+  function add_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $("#answer_list").append(content.replace(regexp, new_id));
+  }
 
   $(document).ready(function(){
-    $("#user_avatar").bind("change", function() {
-      var size_in_megabytes = this.files[0].size/1048576;
-      if (size_in_megabytes > 5) {
-        alert("Maximum file size is 5MB. Please choose a smaller file.");
-      }
+    $("#add-answer-link").click(function(){
+      var association = $("#add-answer-link").data("association");
+      var content = $("#add-answer-link").data("content");
+
+      content = content.replace(/(\\\")/g, "\"");
+      content = content.replace(/(\\n)/g, "");
+      content = content.replace(/(\\\/)/g, "/");
+
+      add_fields(null, association, content);
     });
   });
