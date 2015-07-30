@@ -11,7 +11,7 @@
         <%= t "add" %> <%= time_ago_in_words user.created_at %> <%= t "ago" %>
         <%= link_to t("details"), admin_user_path(user), class: "btn btn-xs btn-info" %> |
         <%= link_to t("delete"), admin_user_path(user), class: "btn btn-xs btn-warning",
-          method: :delete, data: {confirm: t("ask")} %>
+          method: :delete, data: {confirm: t("flash.confirm")} %>
       </li>
     <% end %>
   </ul>
