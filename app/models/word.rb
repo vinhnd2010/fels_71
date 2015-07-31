@@ -6,6 +6,9 @@ class Word < ActiveRecord::Base
   has_many :lesson_words, dependent: :destroy
   has_many :results, dependent: :destroy
 
+  accepts_nested_attributes_for :answers, allow_destroy: true,
+    reject_if: ->a{a[:content].blank?}
+
   scope :in_category, ->category_id{where category_id: category_id if category_id.present?}
   scope :learned, ->user{where("id IN (
     SELECT word_id FROM results WHERE lesson_id IN ( SELECT id FROM lessons WHERE user_id = ?

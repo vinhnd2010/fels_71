@@ -1,0 +1,11 @@
+<% word.answers.order(content: :asc).each do |answer| %>
+  <tr id="word-<%= word.id %>">
+    <td><%= word.category.name %></td>
+    <td><b><%= word.name %></b></td>
+    <td class="text-<%= answer.correct ? "success" : "danger" %>"><b><%= answer.content %></b></td>
+    <td>
+      <%= link_to "", admin_word_path(word), method: :delete,
+        data: {confirm: t("flash.confirm")}, class: "glyphicon glyphicon-remove" %>
+    </td>
+  </tr>
+<% end %>
