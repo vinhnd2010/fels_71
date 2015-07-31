@@ -1,0 +1,17 @@
+<div class="result">
+  <hr>
+  <div class="col-md-5">
+    <h1><%= f.object.word.name %></h1>
+  </div>
+  <div class="col-md-5">
+    <%= f.hidden_field :word_id, value: f.object.word.id %>
+    <% f.object.word.answers.each do |answer| %>
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.radio_button :answer_id, answer.id, disabled: @is_time_over %>
+        </div>
+        <div class="col-md-3"><%= answer.content %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

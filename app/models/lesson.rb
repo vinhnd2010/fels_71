@@ -11,10 +11,14 @@ class Lesson < ActiveRecord::Base
   has_many :lesson_words, dependent: :destroy
   has_many :results, dependent: :destroy
 
-  accepts_nested_attributes_for :words, allow_destroy: true
+  accepts_nested_attributes_for :results, allow_destroy: true
 
   validates :name, presence: true
   validates :description, presence: true
+
+  def num_correct_answer
+    self.results.select{|result| !result.answer.nil? && result.answer.correct?}.count
+  end
 
   private
   def save_activity

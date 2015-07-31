@@ -140,5 +140,7 @@ en:
     name: "Lesson_%{count}"
     description: "Lesson description"
     lessons: "Do the lesson"
+    question: "Question"
+    mark: "Mark: "
   results:
     result: "Result"
