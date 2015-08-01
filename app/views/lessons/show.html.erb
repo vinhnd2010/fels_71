@@ -15,12 +15,15 @@
 
 <div class="container">
   <div class="row" id="lesson">
-    <%= form_for [@category, @lesson] do |f| %>
+    <%= form_for @lesson do |f| %>
       <%= f.fields_for :results do |builder| %>
         <div class="col-md-10">
-          <%= render "word", f: builder %>
+          <%= @words.each do |word| %>
+            <%= render "word", f: builder, w: word %>
+          <% end %>
         </div>
       <% end %>
+
       <div class="col-md-4 col-md-offset-4">
         <br>
         <%= f.submit t("lesson.submit"), class: "btn btn-primary" %>

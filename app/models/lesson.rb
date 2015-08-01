@@ -13,8 +13,8 @@ class Lesson < ActiveRecord::Base
 
   accepts_nested_attributes_for :results, allow_destroy: true
 
-  validates :name, presence: true
-  validates :description, presence: true
+  # validates :name, presence: true
+  # validates :description, presence: true
 
   def num_correct_answer
     self.results.select{|result| !result.answer.nil? && result.answer.correct?}.count
