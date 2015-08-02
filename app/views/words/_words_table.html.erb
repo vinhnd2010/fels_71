@@ -1,0 +1,8 @@
+<table id="table-list" class="table table-hover table-bordered text-center">
+  <tr>
+    <th class="text-center success"><%= t "word.word" %></th>
+    <th class="text-center success"><%= t "word.meaning" %></th>
+    <%= render @words %>
+  </tr>
+</table>
+<%= will_paginate @words %>

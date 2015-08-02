@@ -1,0 +1,6 @@
+$("#word_list_table .tbody").append("<%= j render @words %>");
+<% if @words.next_page %>
+  $(".pagination").replaceWith("<%= j will_paginate @words %>");
+<% else %>
+  $(".pagination").remove();
+<% end %>

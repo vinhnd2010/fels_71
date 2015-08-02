@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = find_object_model User, params[:id]
+    @user = current_user if @user.nil?
     @activities = @user.activities.order(created_at: :DESC)
       .paginate page: params[:page], per_page: Settings.paginate_per_page
     respond_to do |format|
