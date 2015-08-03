@@ -18,3 +18,6 @@ lesson:
   question_limit_words: 5
   category_minimum_words: 3
   duration_in_minutes: 1
+user:
+  avatar:
+    avatar_size: "50x50"

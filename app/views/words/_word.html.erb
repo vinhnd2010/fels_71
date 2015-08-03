@@ -1,12 +1,4 @@
-<table class="table table-hover">
-  <tr class="success">
-    <th><%= t "word.words" %></th>
-    <th><%= t "word.meaning" %></th>
-    <% @words.each do |word| %>
-      <tr>
-        <td><%= word.name %></td>
-        <td><%= word.answers.find_by(correct: true).content %></td>
-      </tr>
-    <% end %>
-  </tr>
-</table>
+<tr>
+  <td><%= word.name %></td>
+  <td><%= word.answers.find_by(correct: true).content %></td>
+</tr>

@@ -4,6 +4,8 @@ class Admin::WordsController < ApplicationController
   before_action :find_word, except: [:index, :new, :create]
 
   def index
+    @words = Word.order("name").paginate page: params[:page],
+      per_page: Settings.paginate_per_page
     @categories = Category.all
     @word = Word.new
     Settings.answer.num_of_ans.times do

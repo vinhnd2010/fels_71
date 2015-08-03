@@ -9,6 +9,7 @@
           <li><%= link_to t("word.list"), admin_words_path %></li>
         <% else %>
           <li><%= link_to t("static_page.logo"), root_path, id: "logo" %></li>
+          <li><%= link_to t("categories.category"), categories_path %></li>
           <li><%= link_to t("word.list"), words_path %></li>
         <% end %>
       <% end %>

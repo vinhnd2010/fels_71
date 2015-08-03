@@ -1,14 +1,24 @@
 <li class="list-group-item list-group-item-info">
-  <% if activity.name == Settings.activities.learned %>
-    <%= t "user.learn_act", action: Settings.activities.learned, word: Word.learned(@user || current_user).count, lesson: Lesson.find_by(id: activity.target_id).name %>
-  <% elsif activity.name == Settings.activities.followed %>
-    <%= t "user.follow_act", action: Settings.activities.followed,
-      user: User.find_by(id: activity.target_id).name %>
-  <% else %>
-    <%= t "user.follow_act", action: Settings.activities.unfollowed,
-      user: User.find_by(id: activity.target_id).name %>
-  <% end %>
-  <span>
+  <h4>
+    <% unless @user.avatar.blank? %>
+      <%= image_tag @user.avatar, size: Settings.user.avatar.avatar_size %>
+    <% else %>
+      <%= image_tag "avatar_default.jpg", size: Settings.user.avatar.avatar_size %>
+    <% end %>
+    <span class="text-info"><%= @user.name %></span>
+    <% if activity.name == Settings.activities.learned %>
+      <%= t "user.learn_act", action: Settings.activities.learned,
+        word_count: Word.learned(@user).count,
+        lesson_name: Lesson.find_by(id: activity.target_id).name %>
+    <% elsif activity.name == Settings.activities.followed %>
+      <%= t "user.follow_act", action: Settings.activities.followed,
+        user: User.find_by(id: activity.target_id).name %>
+    <% else %>
+      <%= t "user.follow_act", action: Settings.activities.unfollowed,
+        user: User.find_by(id: activity.target_id).name %>
+    <% end %>
+  </h4>
+  <p>
     <%= time_ago_in_words activity.created_at %><%= t "ago" %>
-  </span>
+  </p>
 </li>

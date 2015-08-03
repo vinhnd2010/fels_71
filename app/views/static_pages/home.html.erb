@@ -12,7 +12,7 @@
       </section>
       <section class="name">
         <p><%= link_to current_user.name, current_user %></p>
-        <p><%= t "user.numberwordlearn", word: @words.count %></p>
+        <p><%= link_to t("user.numberwordlearn", word_count: @words.count), words_path(filter_state: "learned") %></p>
       </section>
       <section class="stats">
       <%= render "shared/stats" %>
@@ -21,7 +21,7 @@
     <div class="col-md-9">
       <div class="col-md-6 col-md-offset-2">
         <%= link_to t("word.wordall"), words_path, class: "action-button shadow animate blue" %>
-        <%= link_to t("categories.lessons"), root_path, class: "action-button shadow animate red" %>
+        <%= link_to t("categories.lessons"), lessons_path, class: "action-button shadow animate red" %>
       </div>
       <div class="row">
         <div class="col-md-12">
