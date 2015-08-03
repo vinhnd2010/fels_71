@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :words, only: [:index]
   resources :lessons, only: [:index, :show]
   resources :categories, only: [:index, :show] do
-    resources :lessons, only: [:index, :show]
+    resources :lessons
   end
 
   namespace :admin do
@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    get "/:relationship" => "relationships#index", as: :relationship
+    get "/:relationship" => "relationships#index", as: :relationship,
+      constraints: {relationship: /(following|followers)/}
   end
 
   resources :relationships, only: [:index, :create, :destroy]

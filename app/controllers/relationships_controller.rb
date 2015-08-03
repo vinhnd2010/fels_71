@@ -9,7 +9,6 @@ class RelationshipsController < ApplicationController
     else
       redirect_to request.referer
     end
-    render "users/show_follow"
   end
 
   def create
