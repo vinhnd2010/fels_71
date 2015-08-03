@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    get "/:relationship" => "relationships#index", as: :relationship
+    get "/:relationship" => "relationships#index", as: :relationship,
+      constraints: {relationship: /(following|followers)/}
   end
 
   resources :relationships, only: [:index, :create, :destroy]
