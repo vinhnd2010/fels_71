@@ -70,6 +70,11 @@ en:
       created:
         success: "Created lesson"
         fails: "Try again"
+        success: "Lesson starts now!"
+        fails: "Try again"
+      updated:
+        success: "Updated successfully"
+        fails: "Can not update. Try again"
   details: "Details"
   delete: "Delete"
   add: "Added"
@@ -103,7 +108,8 @@ en:
     settings: "%{name} setting"
     confirmation: "Confirmation"
     activities: "Activities"
-    learn_act: "%{action} %{word} in lesson %{lesson}"
+    learn_act: "%{action} %{word} words in lesson %{lesson}"
+    learned: "You've learned"
   invalid: "Invalid email/password"
   Form: "The form contains"
   categories:
@@ -120,6 +126,7 @@ en:
     category: "Categories"
     categories: "Categories"
     start: "Start"
+    lesson_result_for: "Lessons's result for "
   Created: "Created"
   Categories: "Categories"
   word:
@@ -141,6 +148,7 @@ en:
   download: "Download"
   action: "Actions"
   done: "Update"
+  dones: "Done"
   lesson:
     noti: "This lesson has"
     incate: "in category"
@@ -149,3 +157,11 @@ en:
     name: "Lesson_%{count}"
     description: "Lesson description"
     lessons: "Do the lesson"
+    all_learned_lesson: "All learned lesson"
+    lesson_x: "Lesson %{x}"
+    not_enough_word: "Not enough word to learn!"
+    lesson : "Lesson"
+  question:
+    questions: "Question"
+  time_over: "Time over"
+  per: "/"

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "categories#index"
+  root "static_pages#home"
 
   get "help" => "static_pages#help"
   get "about" => "static_pages#about"
@@ -9,12 +9,9 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   resources :words, only: [:index]
-  resources :lessons, only: [:index, :create] do
-    resources :results
-  end
-
-  resources :categories, only: [:index] do
-    resources :lessons, only: [:index, :show, :create]
+  resources :lessons, only: [:index, :show]
+  resources :categories, only: [:index, :show] do
+    resources :lessons, only: [:index, :show]
   end
 
   namespace :admin do

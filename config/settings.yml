@@ -12,3 +12,9 @@ activities:
 fileType_to_import_words: csv
 answer:
   num_of_ans: 4
+question:
+  add_index: 1
+lesson:
+  question_limit_words: 5
+  category_minimum_words: 3
+  duration_in_minutes: 1
