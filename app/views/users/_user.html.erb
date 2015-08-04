@@ -1,9 +1,5 @@
-<li>
-  <section class="user_list">
-    <%= link_to user.name, user %>
-  </section>
-  <% if current_user.admin? && !current_user?(user) %>
-  | <%= link_to t("delete"), user, method: :delete,
-      data: {confirm: t("flash.confirm")}%>
-  <% end %>
+<li class="list-group-item list-group-item-info">
+  <b><%= link_to user.name, user_path(user) %></b></br>
+  <%= t "add" %> <%= time_ago_in_words user.created_at %> <%= t "ago" %>
+  <%= link_to t("details"), user_path(user), class: "btn btn-xs btn-info" %>
 </li>
