@@ -1,6 +1,6 @@
 <tr id="category-<%= category.id %>">
   <td><%= category.name %></td>
-  <td><%= category.description %></td>
+  <td><%= category.description.truncate 100 %></td>
   <td><%= category.words.length %></td>
   <td>
     <%= link_to "", admin_category_path(category), method: :delete, remote: true,

@@ -4,8 +4,14 @@ User.create!(name: "admin",
             password_confirmation: "123456",
             role: 0)
 
-10.times do |n|
-  name  = "FELS#{n+1}"
+User.create!(name: "teacher",
+            email: "teacher@framgia.com",
+            password: "123456",
+            password_confirmation: "123456",
+            role: 1)
+
+100.times do |n|
+  name  = Faker::Name.name
   email = "FELS#{n+1}@gmail.com"
   password = "123456"
   User.create!(name:  name,
@@ -14,9 +20,9 @@ User.create!(name: "admin",
                password_confirmation: password)
 end
 
-10.times do |n|
-  name  = "Category #{n}"
-  description = "Description-#{n}"
+100.times do |n|
+  name  = Faker::Name.title
+  description = Faker::Lorem.paragraphs(5).join("-")
   Category.create!(name:  name,
                description: description)
 end
