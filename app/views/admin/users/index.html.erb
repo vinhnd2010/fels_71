@@ -3,19 +3,10 @@
 <h1><%= t "user.title.index" %></h1>
 <div class="col-sm-3 col-md-12">
   <%= link_to t("user.title.new"), new_admin_user_path, class: "btn btn-lg btn-primary" %></br>
-  <%= will_paginate %>
-  <ul class="list-group">
-    <% @users.each do |user| %>
-      <li class="list-group-item list-group-item-info">
-        <b><%= link_to user.name, admin_user_path(user) %></b></br>
-        <%= t "add" %> <%= time_ago_in_words user.created_at %> <%= t "ago" %>
-        <%= link_to t("details"), admin_user_path(user), class: "btn btn-xs btn-info" %> |
-        <%= link_to t("delete"), admin_user_path(user), class: "btn btn-xs btn-warning",
-          method: :delete, data: {confirm: t("flash.confirm")} %>
-      </li>
-    <% end %>
+  <ul id="user-list" class="list-group">
+    <%= render @users %>
   </ul>
-  <%= will_paginate %>
+  <%= will_paginate @users %>
 </div>
 
 <div class="clear"></div>

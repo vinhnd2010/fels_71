@@ -1,21 +1,12 @@
-<% provide :title, t("user.all_users") %>
+<% provide :title, t("user.title.index") %>
 
-<h1><%= t "user.all_users" %>
-  <span class = "label label-danger">
-    <%= pluralize @users.count, t("user.users") %>
-  </span>
+<h1>
+  <p><%= t "user.title.index" %></p>
+  <p class="label label-danger"><%= pluralize @users.count, t("user.users") %></p>
 </h1>
-
 <div class="col-sm-3 col-md-12">
-  <%= will_paginate %>
-  <ul class="list-group">
-    <% @users.each do |user| %>
-      <li class="list-group-item list-group-item-info">
-        <b><%= link_to user.name, user_path(user) %></b></br>
-        <%= t "add" %> <%= time_ago_in_words user.created_at %> <%= t "ago" %>
-        <%= link_to t("details"), user_path(user), class: "btn btn-xs btn-info" %>
-      </li>
-    <% end %>
+  <ul id="user-list" class="list-group">
+    <%= render @users %>
   </ul>
-  <%= will_paginate %>
+  <%= will_paginate @users %>
 </div>
