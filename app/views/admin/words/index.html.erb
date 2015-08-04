@@ -29,7 +29,7 @@
     <%= will_paginate @words %>
   </div>
   <div class="col-md-4">
-    <div>
+    <div id="word-form">
       <%= form_for [:admin, @word], class: "form" do |f| %>
         <div class="form-group">
           <%= f.label :name %>
