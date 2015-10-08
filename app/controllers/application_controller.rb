@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
+  check_authorization
   protect_from_forgery with: :exception
   include SessionsHelper
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = t "access_denied"
+    redirect_to root_url, alert: exception.message
+  end
 
   def find_object_model model, id
     begin

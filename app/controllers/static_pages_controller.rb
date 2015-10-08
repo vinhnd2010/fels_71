@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  skip_authorization_check
+
   def home
     if logged_in?
       @words = Word.learned current_user

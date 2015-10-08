@@ -166,3 +166,4 @@ en:
     questions: "Question"
   time_over: "Time over"
   per: "/"
+  access_denied: "Access denied"
